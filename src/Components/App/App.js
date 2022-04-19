@@ -1,7 +1,18 @@
 import "./App.css";
 import { Drum } from "../Drum/Drum";
+import { useState } from "react";
 
 function App() {
+  const [isClicked, clickState] = useState(false);
+
+  const handleClick = () => {
+    if(isClicked) {
+      clickState(false);
+      return;
+    }
+    clickState(true);
+  }
+
   return (
     <div id="container">
       <Drum />
@@ -9,7 +20,7 @@ function App() {
         <div className="text-and-toggle">
           <span className="text">Power</span>
           <div className="toggle">
-            <div className="toggle-button">p</div>
+            <div className="toggle-button" onClick={handleClick} style={{float: isClicked ? "right" : "left"}}>p</div>
           </div>
         </div>
         <div id="current-sound">p</div>
