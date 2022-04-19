@@ -1,0 +1,36 @@
+#container {
+    display: flex;
+    border: 1px solid gray;
+    margin: 0 auto;
+    position: relative;
+    top: 300px;
+    box-sizing: border-box;
+    overflow: auto;
+    width: 25%;
+}
+
+#current-sound {
+    background-color: grey;
+    padding: 10px;
+}
+
+.toggle {
+    text-align: center;
+    background-color: black;
+    height: 35%;
+}
+
+.toggle-button {
+    background-color: blue;
+    width: 50%;
+    height: 100%;
+    color: blue;
+}
+
+#toggle-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid grey;
+    width: 100%;
+}

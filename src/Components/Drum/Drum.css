@@ -1,0 +1,15 @@
+.drum-button {
+    border: 1px solid grey;
+    background-color: grey;
+    height: 10%;
+    width: 45px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+.drum-buttons {
+    display: flex;
+}
