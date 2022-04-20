@@ -1,6 +1,6 @@
 .drum-button {
-    border: 1px solid grey;
-    background-color: grey;
+    border: 5px solid orange;
+    background-color: orange;
     height: 10%;
     width: 45px;
     text-align: center;
@@ -12,4 +12,20 @@
 
 .drum-buttons {
     display: flex;
+}
+
+#drum-container {
+    width: 100%;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 600px) {
+    .drum-button {
+        width: 25px;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1300px) {
+    .drum-button {
+        width: 45px;
+    }
 }

@@ -1,21 +1,23 @@
 #container {
     display: flex;
-    border: 1px solid gray;
+    border: 10px solid orange;
     margin: 0 auto;
     position: relative;
     top: 300px;
     box-sizing: border-box;
     overflow: auto;
     width: 25%;
+    background-color: white;
 }
 
 #current-sound {
-    background-color: grey;
+    background-color: orange;
+    color: white;
 }
 
 .toggle {
     text-align: center;
-    background-color: black;
+    background-color: orange;
     height: 20px;
     width: 50%;
     font-size: 1px;
@@ -23,10 +25,10 @@
 }
 
 .toggle-button {
-    background-color: blue;
+    background-color: black;
     width: 50%;
     height: 100%;
-    color: blue;
+    color: black;
 }
 
 .text-and-toggle {
@@ -34,9 +36,28 @@
 }
 
 #toggle-container {
-    border-left: 1px solid grey;
+    border-left: 10px solid orange;
     width: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
+}
+
+#range {
+    color: brown;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 600px) {
+    #container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1300px) {
+    .drum-button {
+        width: 45px;
+    }
+    #container {
+        width: 60%;
+    }
 }

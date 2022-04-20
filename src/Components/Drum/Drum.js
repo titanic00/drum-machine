@@ -3,67 +3,87 @@ import "./Drum.css";
 import { sounds } from "./sounds";
 import { sounds_bank } from "./sounds";
 
-const sound = new Audio();
-
 export function Drum(props) {
-  const handlePress = (event) => {
-    if (props.bank) {
-      sound.src = sounds_bank[event.key].sound;
-      sound.id = sounds_bank[event.key].id;
-      props.currentSound(sounds_bank[event.key].id);
-    } else {
-      sound.src = sounds[event.key].sound;
-      sound.id = sounds[event.key].id;
-      props.currentSound(sounds[event.key].id);
+  const handleClick = (event) => {
+    if (!props.powerCheck) {
+      return;
     }
+    else if (props.bank) {
+      const elementId = event.target.children[0].id;
+      const audio = event.target.children[`${elementId}`];
+      audio.src = sounds_bank[`${elementId}`].sound;
+      props.currentSound(sounds_bank[`${elementId}`].id);
+      audio.volume = props.volume;
+      audio.play();
+    } else {
+      const elementId = event.target.children[0].id;
+      const audio = event.target.children[`${elementId}`];
+      audio.src = sounds[`${elementId}`].sound;
+      props.currentSound(sounds[`${elementId}`].id);
+      audio.volume = props.volume;
+      audio.play();
+    }
+  };
 
-    sound.volume = props.volume;
-    sound.pause();
-
-    sound.play();
+  const handleKeyboard = (event) => {
+    if (props.bank) {
+      const elementId = event.key;
+      const audio = document.getElementById(`${elementId}`);
+      audio.src = sounds_bank[`${elementId}`].sound;
+      props.currentSound(sounds_bank[`${elementId}`].id);
+      audio.volume = props.volume;
+      audio.play();
+    } else {
+      const elementId = event.key;
+      const audio = document.getElementById(`${elementId}`);
+      audio.src = sounds[`${elementId}`].sound;
+      props.currentSound(sounds[`${elementId}`].id);
+      audio.volume = props.volume;
+      audio.play();
+    }
   };
 
   useEffect(() => {
-    if (props.powerCheck) window.addEventListener("keydown", handlePress);
+    if (props.powerCheck) document.addEventListener("keydown", handleKeyboard);
 
     return function cleanup() {
-      window.removeEventListener("keydown", handlePress);
+      document.removeEventListener("keydown", handleKeyboard);
     };
   });
 
   return (
     <div id="drum-container">
       <div className="drum-buttons">
-        <div className="drum-button" id="Heater 1">
-          Q
+        <div className="drum-button" id="Heater 1" onClick={handleClick}>
+          Q<audio id="q"></audio>
         </div>
-        <div className="drum-button" id="Heater 2">
-          W
+        <div className="drum-button" id="Heater 2" onClick={handleClick}>
+          W<audio id="w"></audio>
         </div>
-        <div className="drum-button" id="Heater 3">
-          E
-        </div>
-      </div>
-      <div className="drum-buttons">
-        <div className="drum-button" id="Heater 4">
-          A
-        </div>
-        <div className="drum-button" id="Clap">
-          S
-        </div>
-        <div className="drum-button" id="Open HH">
-          D
+        <div className="drum-button" id="Heater 3" onClick={handleClick}>
+          E<audio id="e"></audio>
         </div>
       </div>
       <div className="drum-buttons">
-        <div className="drum-button" id="Kick n' Hat">
-          Z
+        <div className="drum-button" id="Heater 4" onClick={handleClick}>
+          A<audio id="a"></audio>
         </div>
-        <div className="drum-button" id="Kick">
-          X
+        <div className="drum-button" id="Clap" onClick={handleClick}>
+          S<audio id="s"></audio>
         </div>
-        <div className="drum-button" id="Closed HH">
-          C
+        <div className="drum-button" id="Open HH" onClick={handleClick}>
+          D<audio id="d"></audio>
+        </div>
+      </div>
+      <div className="drum-buttons">
+        <div className="drum-button" id="Kick n' Hat" onClick={handleClick}>
+          Z<audio id="z"></audio>
+        </div>
+        <div className="drum-button" id="Kick" onClick={handleClick}>
+          X<audio id="x"></audio>
+        </div>
+        <div className="drum-button" id="Closed HH" onClick={handleClick}>
+          C<audio id="c"></audio>
         </div>
       </div>
     </div>

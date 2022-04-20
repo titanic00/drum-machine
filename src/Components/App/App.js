@@ -43,9 +43,9 @@ function App() {
             <div className="toggle-button" onClick={handleClick} style={{float: isPowerOff ? "left" : "right"}}>p</div>
           </div>
         </div>
-        <div id="current-sound">{currentSound}</div>
+        <div id="current-sound"><span className="text">{currentSound}</span></div>
         <div id="change-volume" onChange={handleChange}>
-          <input type="range" min="0" max="1" step="0.01" />
+          <input id="range" type="range" min="0" max="1" step="0.01" />
         </div>
         <div className="text-and-toggle">
           <span className="text">Bank</span>
