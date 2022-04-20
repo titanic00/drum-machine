@@ -38,17 +38,17 @@ function App() {
       <Drum currentSound={setNewSound} powerCheck={isPowerOff} volume={currentVolume} bank={isBank} />
       <div id="toggle-container">
         <div className="text-and-toggle">
-          <span className="text">Power</span>
+          <span>Power</span>
           <div className="toggle">
             <div className="toggle-button" onClick={handleClick} style={{float: isPowerOff ? "left" : "right"}}>p</div>
           </div>
         </div>
-        <div id="current-sound"><span className="text">{currentSound}</span></div>
+        <div id="current-sound"><span id="text">{currentSound}</span></div>
         <div id="change-volume" onChange={handleChange}>
           <input id="range" type="range" min="0" max="1" step="0.01" />
         </div>
         <div className="text-and-toggle">
-          <span className="text">Bank</span>
+          <span>Bank</span>
           <div className="toggle">
             <div className="toggle-button" onClick={handleBank} style={{float: isBank ? "right" : "left"}}>p</div>
           </div>
