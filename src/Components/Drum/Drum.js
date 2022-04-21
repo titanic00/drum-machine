@@ -82,9 +82,9 @@ export const sounds_bank = {
 export function Drum(props) {
   const setButtonStyle = (element, isClicked) => {
     if (isClicked) {
-      element.setAttribute("style", "background-color: orange");
-    } else {
       element.setAttribute("style", "background-color: rgb(184, 126, 19)");
+    } else {
+      element.setAttribute("style", "background-color: orange");
     }
   };
 

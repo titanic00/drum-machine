@@ -85,6 +85,15 @@ input[type="range"]::-webkit-slider-thumb {
 @media only screen and (min-width: 250px) and (max-width: 600px) {
     #container {
         width: 100%;
+        position: absolute;
+    }
+}
+
+@media only screen and (min-width: 250px) and (max-width: 600px) {
+    #container {
+        width: 100%;
+        position: relative;
+        top: 150px;
     }
 }
 
@@ -94,5 +103,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
     #container {
         width: 60%;
+        position: relative;
+        top: 150px;
     }
 }
