@@ -8,6 +8,7 @@
     overflow: auto;
     width: 25%;
     background-color: white;
+    border-radius: 5px;
 }
 
 #current-sound {
@@ -15,11 +16,14 @@
     width: 100%;
     height: 80%;
     text-align: center;
+    border-radius: 5px;
 }
 
 #text {
     position: relative;
     top: 10px;
+    color: white;
+    font-weight: bold;
 }
 
 .toggle {
@@ -29,6 +33,7 @@
     width: 50%;
     font-size: 1px;
     margin-left: 25%;
+    border-radius: 5px;
 }
 
 .toggle-button {
@@ -36,6 +41,7 @@
     width: 50%;
     height: 100%;
     color: black;
+    border-radius: 5px;
 }
 
 .text-and-toggle {
@@ -52,6 +58,28 @@
 
 #range {
     color: brown;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1.1em;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 13px;
+    width: 45px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-bottom: 1px solid #29334f;
+    box-shadow: 0 0 0 orange, -40px 0 0 orange, -85px 0 0 orange, -130px 0 0 orange, -175px 0 0 orange, -220px 0 0 orange, -265px 0 0 orange, -310px 0 0 orange, -350px 0 0 orange, -390px 0 0 red, -409px 0 0 red;
+    background: black;
 }
 
 @media only screen and (min-width: 250px) and (max-width: 600px) {

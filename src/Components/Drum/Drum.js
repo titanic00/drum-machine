@@ -80,49 +80,59 @@ export const sounds_bank = {
 };
 
 export function Drum(props) {
+  const setButtonStyle = (element, isClicked) => {
+    if (isClicked) {
+      element.setAttribute("style", "background-color: orange");
+    } else {
+      element.setAttribute("style", "background-color: rgb(184, 126, 19)");
+    }
+  };
+
   const handleClick = (event) => {
+    const elementId = event.target.children[0].id;
+    setButtonStyle(event.target, true);
     if (!props.powerCheck) {
       return;
     } else if (props.bank) {
-      const elementId = event.target.children[0].id;
       const audio = event.target.children[`${elementId}`];
       audio.src = sounds_bank[`${elementId}`].sound;
       props.currentSound(sounds_bank[`${elementId}`].id);
       audio.volume = props.volume;
       audio.play();
     } else {
-      const elementId = event.target.children[0].id;
       const audio = event.target.children[`${elementId}`];
       audio.src = sounds[`${elementId}`].sound;
       props.currentSound(sounds[`${elementId}`].id);
       audio.volume = props.volume;
       audio.play();
     }
+    setTimeout(() => {setButtonStyle(event.target, false);}, 100);
   };
 
   const handleKeyboard = (event) => {
+    const elementId = event.key;
+    setButtonStyle(document.getElementById(`${elementId}`).parentElement, true);
     if (props.bank) {
-      const elementId = event.key;
       const audio = document.getElementById(`${elementId}`);
       audio.src = sounds_bank[`${elementId}`].sound;
       props.currentSound(sounds_bank[`${elementId}`].id);
       audio.volume = props.volume;
       audio.play();
     } else {
-      const elementId = event.key;
       const audio = document.getElementById(`${elementId}`);
       audio.src = sounds[`${elementId}`].sound;
       props.currentSound(sounds[`${elementId}`].id);
       audio.volume = props.volume;
       audio.play();
     }
+    setTimeout(() => {setButtonStyle(document.getElementById(`${elementId}`).parentElement, false);}, 100);
   };
 
   useEffect(() => {
-    if (props.powerCheck) window.addEventListener("keydown", handleKeyboard);
+    if (props.powerCheck) window.addEventListener("keypress", handleKeyboard);
 
     return function cleanup() {
-      window.removeEventListener("keydown", handleKeyboard);
+      window.removeEventListener("keypress", handleKeyboard);
     };
   });
 
